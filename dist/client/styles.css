@@ -1470,59 +1470,39 @@ body:has(.gift-modal[open]) {
   width: min(76%, 300px);
   height: auto;
   margin: 0 auto clamp(32px, 7vw, 52px);
+  filter: brightness(0);
 }
 
 .site-footer__links {
-  display: grid;
-  grid-template-columns: 1fr;
-  border-top: 1px solid rgb(5 5 5 / 24%);
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 7vw, 38px);
 }
 
 .site-footer__links a {
   display: grid;
-  gap: 5px;
-  padding: 18px 8px;
+  width: 52px;
+  height: 52px;
+  padding: 12px;
+  place-items: center;
   color: inherit;
-  border-bottom: 1px solid rgb(5 5 5 / 24%);
-  font-family: "GFS Didot", Georgia, serif;
-  font-size: 17px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
   text-decoration: none;
-  transition: letter-spacing 180ms ease, background-color 180ms ease;
+  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
-.site-footer__links a span {
-  font-family: Arial, sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.28em;
+.site-footer__links svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
 }
 
 .site-footer__links a:hover,
 .site-footer__links a:focus-visible {
   background: #faf6f8;
-  letter-spacing: 0.02em;
+  transform: translateY(-3px);
   outline: none;
-}
-
-.site-footer__signature {
-  margin: 30px 0 0;
-  font-family: Arial, sans-serif;
-  font-size: 8px;
-  letter-spacing: 0.34em;
-}
-
-@media (min-width: 720px) {
-  .site-footer__links {
-    grid-template-columns: repeat(3, 1fr);
-    border-bottom: 1px solid rgb(5 5 5 / 24%);
-  }
-
-  .site-footer__links a {
-    border-bottom: 0;
-  }
-
-  .site-footer__links a + a {
-    border-left: 1px solid rgb(5 5 5 / 24%);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
