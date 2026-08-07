@@ -442,6 +442,218 @@ body {
   bottom: 36%;
 }
 
+.date-reveal {
+  position: absolute;
+  z-index: 30;
+  overflow: hidden;
+  background: var(--paper);
+  inset: 0;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.date-reveal.is-initialized {
+  background: transparent;
+}
+
+.date-reveal[hidden] {
+  display: none;
+}
+
+.date-reveal__canvas {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  cursor: ew-resize;
+}
+
+.date-reveal__copy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  width: min(86%, 620px);
+  translate: -50% -50%;
+  color: var(--ink);
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.date-reveal.is-scratching .date-reveal__copy {
+  opacity: 0.28;
+  transform: scale(0.98);
+}
+
+.date-reveal__copy p {
+  margin: 0;
+  font-family: "GFS Didot", Didot, serif;
+  font-size: clamp(1.25rem, 5vw, 2.5rem);
+  letter-spacing: 0.17em;
+}
+
+.date-reveal__copy > span:not(.date-reveal__star) {
+  margin-top: 12px;
+  font-family: "GFS Didot", Didot, serif;
+  font-size: clamp(0.9rem, 3.6vw, 1.3rem);
+  letter-spacing: 0.08em;
+}
+
+.date-reveal__copy i {
+  width: min(150px, 38vw);
+  height: 1px;
+  margin-top: 28px;
+  background: var(--ink);
+}
+
+.date-reveal__copy button {
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: Arial, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.date-reveal__star,
+.date-magic span {
+  position: absolute;
+  width: 15px;
+  aspect-ratio: 1;
+  background: var(--ink);
+  clip-path: polygon(50% 0, 57% 41%, 100% 50%, 57% 59%, 50% 100%, 43% 59%, 0 50%, 43% 41%);
+}
+
+.date-reveal__star--one {
+  top: -70px;
+  left: 8%;
+}
+
+.date-reveal__star--two {
+  top: -32px;
+  right: 4%;
+  width: 10px;
+}
+
+.date-reveal__star--three {
+  right: 16%;
+  bottom: -70px;
+  width: 12px;
+}
+
+.date-reveal.is-finishing {
+  pointer-events: none;
+  animation: date-cover-out 360ms ease-in forwards;
+}
+
+.date-magic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 35;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.date-magic span {
+  top: -7px;
+  left: -7px;
+  opacity: 0;
+}
+
+.date-magic.is-active span {
+  animation: date-magic-star 640ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.event-date.is-revealed {
+  animation: date-section-zoom 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.event-date.is-revealed .event-date__day {
+  animation: date-day-enter 720ms 80ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.event-date.is-revealed .event-date__month,
+.event-date.is-revealed .event-date__time,
+.event-date.is-revealed .event-date__button {
+  animation: date-details-enter 480ms 180ms ease-out both;
+}
+
+.event-date.is-revealed-instant,
+.event-date.is-revealed-instant .event-date__day,
+.event-date.is-revealed-instant .event-date__month,
+.event-date.is-revealed-instant .event-date__time,
+.event-date.is-revealed-instant .event-date__button {
+  animation: none;
+}
+
+@keyframes date-cover-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes date-magic-star {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(0) scale(0.35);
+  }
+
+  28% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(var(--distance)) scale(1.05);
+  }
+}
+
+@keyframes date-section-zoom {
+  from {
+    transform: scale(0.992);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes date-day-enter {
+  from {
+    opacity: 0;
+    scale: 0.88;
+    translate: 0 18px;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes date-details-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .venue {
   display: grid;
   place-items: center;
@@ -1235,5 +1447,27 @@ body:has(.gift-modal[open]) {
 
   .music__frame::after {
     display: none;
+  }
+
+  .date-magic {
+    display: none;
+  }
+
+  .event-date.is-revealed,
+  .event-date.is-revealed .event-date__day,
+  .event-date.is-revealed .event-date__month,
+  .event-date.is-revealed .event-date__time,
+  .event-date.is-revealed .event-date__button {
+    animation: date-simple-fade 260ms ease-out both;
+  }
+
+  @keyframes date-simple-fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 }
