@@ -27,7 +27,7 @@ body,
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1105,8 +1105,8 @@ body:has(.gift-modal[open]) {
   }
 
   .cover__photo {
-    bottom: -1svh;
-    width: 106vw;
+    bottom: 0;
+    width: 100vw;
   }
 }
 
@@ -1117,7 +1117,31 @@ body:has(.gift-modal[open]) {
 
   .cover__photo {
     bottom: 0;
-    width: 108vw;
+    width: 100vw;
+  }
+}
+
+@supports (height: 100dvh) {
+  .cover,
+  .countdown,
+  .event-date,
+  .venue,
+  .dress-code,
+  .music,
+  .gifts,
+  .bloomkeep,
+  .closing {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  .venue__frame,
+  .dress-code__frame,
+  .music__frame,
+  .gifts__frame,
+  .bloomkeep__frame,
+  .closing__frame {
+    width: min(100vw, 56.34dvh);
   }
 }
 
