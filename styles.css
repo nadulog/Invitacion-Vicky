@@ -1470,7 +1470,6 @@ body:has(.gift-modal[open]) {
   width: min(76%, 300px);
   height: auto;
   margin: 0 auto clamp(32px, 7vw, 52px);
-  filter: brightness(0);
 }
 
 .site-footer__links {
@@ -1486,8 +1485,6 @@ body:has(.gift-modal[open]) {
   padding: 12px;
   place-items: center;
   color: inherit;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
   text-decoration: none;
   transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
