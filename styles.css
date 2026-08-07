@@ -281,24 +281,26 @@ body {
   width: clamp(10px, 2vw, 18px);
 }
 
-.countdown__decoration {
+.countdown__tulle,
+.countdown__shoe {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
   z-index: 1;
-  height: 25svh;
-  overflow: hidden;
+  display: block;
+  height: auto;
   pointer-events: none;
+  user-select: none;
 }
 
-.countdown__decoration img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  max-width: none;
+.countdown__tulle {
+  bottom: -1%;
+  left: -4%;
+  width: min(66vw, 580px);
+}
+
+.countdown__shoe {
+  right: 1.5%;
+  bottom: 2%;
+  width: min(38vw, 330px);
 }
 
 .event-date {
@@ -1065,8 +1067,13 @@ body:has(.gift-modal[open]) {
     font-size: clamp(0.8rem, 1.35vw, 1.35rem);
   }
 
-  .countdown__decoration {
-    height: 27svh;
+  .countdown__tulle {
+    width: min(48vw, 650px);
+  }
+
+  .countdown__shoe {
+    right: 4%;
+    width: min(25vw, 380px);
   }
 
   .event-date__day {
