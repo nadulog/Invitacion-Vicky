@@ -89,7 +89,6 @@ mapModal.addEventListener("click", (event) => {
   }
 });
 
-const spotifyLink = document.getElementById("spotifyLink");
 const musicSection = document.querySelector(".music");
 
 const musicObserver = new IntersectionObserver(
@@ -103,12 +102,6 @@ const musicObserver = new IntersectionObserver(
 );
 
 musicObserver.observe(musicSection);
-
-spotifyLink.addEventListener("click", (event) => {
-  if (spotifyLink.getAttribute("href") === "#") {
-    event.preventDefault();
-  }
-});
 
 const giftModal = document.getElementById("giftModal");
 const openGiftButton = document.getElementById("openGift");
