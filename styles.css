@@ -1423,6 +1423,108 @@ body:has(.gift-modal[open]) {
   }
 }
 
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(54px, 10vw, 96px) 24px clamp(42px, 8vw, 72px);
+  color: var(--ink);
+  background: var(--paper);
+  text-align: center;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(72%, 520px);
+  height: 1px;
+  background: rgb(5 5 5 / 28%);
+  transform: translateX(-50%);
+}
+
+.site-footer__inner {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.site-footer__star {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.site-footer__made {
+  margin: 0 0 12px;
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: clamp(18px, 4.8vw, 25px);
+}
+
+.site-footer__made span {
+  color: #ef91b5;
+}
+
+.site-footer__logo {
+  display: block;
+  width: min(76%, 300px);
+  height: auto;
+  margin: 0 auto clamp(32px, 7vw, 52px);
+}
+
+.site-footer__links {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid rgb(5 5 5 / 24%);
+}
+
+.site-footer__links a {
+  display: grid;
+  gap: 5px;
+  padding: 18px 8px;
+  color: inherit;
+  border-bottom: 1px solid rgb(5 5 5 / 24%);
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 17px;
+  text-decoration: none;
+  transition: letter-spacing 180ms ease, background-color 180ms ease;
+}
+
+.site-footer__links a span {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+}
+
+.site-footer__links a:hover,
+.site-footer__links a:focus-visible {
+  background: #faf6f8;
+  letter-spacing: 0.02em;
+  outline: none;
+}
+
+.site-footer__signature {
+  margin: 30px 0 0;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.34em;
+}
+
+@media (min-width: 720px) {
+  .site-footer__links {
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid rgb(5 5 5 / 24%);
+  }
+
+  .site-footer__links a {
+    border-bottom: 0;
+  }
+
+  .site-footer__links a + a {
+    border-left: 1px solid rgb(5 5 5 / 24%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
