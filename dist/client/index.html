@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vicky's Fest | Mis 15</title>
+    <meta
+      name="description"
+      content="¡Llegó el momento! Quiero invitarte a compartir una noche muy especial conmigo. Tu presencia hará que mis 15 sean inolvidables."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="Vicky's Fest · Mis 15" />
+    <meta
+      property="og:description"
+      content="¡Llegó el momento! Quiero invitarte a compartir una noche muy especial conmigo. Tu presencia hará que mis 15 sean inolvidables. Te espero en Vicky's Fest ✨"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/nadulog/Invitacion-Vicky/main/assets/whatsapp-preview.png"
+    />
+    <meta property="og:image:width" content="1984" />
+    <meta property="og:image:height" content="793" />
+    <meta property="og:image:alt" content="Vicky's Fest, invitación a mis 15" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vicky's Fest · Mis 15" />
+    <meta
+      name="twitter:description"
+      content="¡Llegó el momento! Quiero invitarte a compartir una noche muy especial conmigo. Tu presencia hará que mis 15 sean inolvidables."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/nadulog/Invitacion-Vicky/main/assets/whatsapp-preview.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button
+      class="audio-toggle"
+      id="audioToggle"
+      type="button"
+      aria-label="Reproducir música"
+      aria-pressed="false"
+      title="Reproducir música"
+    >
+      <span class="audio-toggle__play" aria-hidden="true">♪</span>
+      <span class="audio-toggle__pause" aria-hidden="true">Ⅱ</span>
+    </button>
+    <audio id="invitationAudio" src="assets/invitation-music.mp3" loop preload="metadata"></audio>
+
+    <main class="invitation">
+      <section class="cover" aria-label="Portada Vicky's Fest">
+        <span class="cover__spark cover__spark--one" aria-hidden="true"></span>
+        <span class="cover__spark cover__spark--two" aria-hidden="true"></span>
+        <span class="cover__spark cover__spark--three" aria-hidden="true"></span>
+        <span class="cover__spark cover__spark--four" aria-hidden="true"></span>
+        <span class="cover__spark cover__spark--five" aria-hidden="true"></span>
+        <h1 class="cover__title">
+          <span>VICKY'S</span>
+          <span>FEST</span>
+        </h1>
+        <img
+          class="cover__photo"
+          src="assets/vicky-legs.png"
+          alt="Piernas con zapatos negros de taco alto y vestido de tul negro"
+        />
+      </section>
+
+      <section class="countdown" aria-labelledby="countdownTitle">
+        <span class="countdown__spark countdown__spark--top" aria-hidden="true"></span>
+        <span class="countdown__spark countdown__spark--middle" aria-hidden="true"></span>
+        <span class="countdown__spark countdown__spark--bottom" aria-hidden="true"></span>
+        <span class="countdown__spark countdown__spark--left" aria-hidden="true"></span>
+        <span class="countdown__spark countdown__spark--right" aria-hidden="true"></span>
+        <span class="countdown__spark countdown__spark--lower" aria-hidden="true"></span>
+
+        <header class="countdown__header">
+          <h2 id="countdownTitle"><span>FALTA</span><span>POCO</span></h2>
+        </header>
+
+        <div class="countdown__clock" aria-live="polite" aria-label="Cuenta regresiva">
+          <div class="countdown__unit">
+            <strong id="countdownDays">000</strong>
+            <i aria-hidden="true"></i>
+            <span>DÍAS</span>
+          </div>
+          <div class="countdown__unit">
+            <strong id="countdownHours">00</strong>
+            <i aria-hidden="true"></i>
+            <span>HS</span>
+          </div>
+          <div class="countdown__unit">
+            <strong id="countdownMinutes">00</strong>
+            <i aria-hidden="true"></i>
+            <span>MIN</span>
+          </div>
+          <div class="countdown__unit">
+            <strong id="countdownSeconds">00</strong>
+            <i aria-hidden="true"></i>
+            <span>SEG</span>
+          </div>
+        </div>
+
+        <div class="countdown__decoration" aria-hidden="true">
+          <img src="assets/countdown-decoration.png" alt="" />
+        </div>
+      </section>
+
+      <section class="event-date" aria-labelledby="eventDateTitle">
+        <span class="event-date__spark event-date__spark--one" aria-hidden="true"></span>
+        <span class="event-date__spark event-date__spark--two" aria-hidden="true"></span>
+        <span class="event-date__spark event-date__spark--three" aria-hidden="true"></span>
+
+        <div class="event-date__day" id="eventDateTitle" aria-label="28 de noviembre de 2026">
+          <span>2</span><span>8</span>
+        </div>
+
+        <div class="event-date__month" aria-hidden="true">
+          <span>NOVIEMBRE</span>
+          <i></i>
+          <span class="event-date__year">2026</span>
+        </div>
+
+        <div class="event-date__time">
+          <strong>21:15</strong>
+          <span>HS</span>
+        </div>
+
+        <a class="event-date__button" id="calendarLink" href="#" target="_blank" rel="noopener">
+          AGREGAR AL CALENDARIO
+        </a>
+
+      </section>
+
+      <section class="venue" aria-label="Durques, Av. del Circuito entre A1 y A2">
+        <div class="venue__frame">
+          <img class="venue__image" src="assets/venue.png" alt="Durques, Av. del Circuito entre A1 y A2" />
+          <p class="venue__eyebrow">NOS ENCONTRAMOS EN:</p>
+          <button class="venue__button" id="openMap" type="button" aria-haspopup="dialog">
+            <span class="sr-only">Cómo llegar a Durques</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="dress-code" aria-label="Dress code elegante">
+        <div class="dress-code__frame">
+          <img class="dress-code__image" src="assets/dress-code.png" alt="Dress code elegante" />
+        </div>
+      </section>
+
+      <section class="music" aria-label="Música: sumá tus canciones a mi playlist">
+        <div class="music__frame">
+          <img class="music__image" src="assets/music.png" alt="Música, sumá tus canciones a mi playlist" />
+          <a class="music__button" id="spotifyLink" href="#" aria-label="Abrir playlist de Spotify">
+            <span class="sr-only">Abrir playlist</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="gifts" aria-label="Información para regalos">
+        <div class="gifts__frame">
+          <img class="gifts__image" src="assets/gifts.png" alt="Regalos: tu presencia es lo más importante" />
+          <button class="gifts__button" id="openGift" type="button" aria-haspopup="dialog">VER MÁS</button>
+        </div>
+      </section>
+
+      <section class="bloomkeep" aria-label="Bloomkeep, la red social de Vicky Fest">
+        <div class="bloomkeep__frame">
+          <img class="bloomkeep__image" src="assets/bloomkeep.png" alt="Bloomkeep, la red social de Vicky Fest" />
+          <a
+            class="bloomkeep__button"
+            id="bloomkeepLink"
+            href="https://app.bloomkeep.site/vicky-fest"
+            target="_blank"
+            rel="noopener"
+            aria-label="Entrar a Bloomkeep"
+          >
+            <span class="sr-only">Entrar a Bloomkeep</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="closing" aria-label="Cierre y confirmación de asistencia">
+        <div class="closing__frame">
+          <img class="closing__image" src="assets/closing.png" alt="¿Venís? Quiero festejar esta noche con vos" />
+          <a
+            class="closing__button"
+            id="confirmationLink"
+            href="https://bloomdate-rsvp.netlify.app/r/vicky-fest"
+            target="_blank"
+            rel="noopener"
+            aria-label="Confirmar asistencia"
+          >
+            <span class="sr-only">Confirmar asistencia</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="map-modal" id="mapModal" aria-labelledby="mapModalTitle">
+      <div class="map-modal__panel">
+        <header class="map-modal__header">
+          <div>
+            <p>UBICACIÓN</p>
+            <h2 id="mapModalTitle">Cómo llegar</h2>
+          </div>
+          <button class="map-modal__close" id="closeMap" type="button" aria-label="Cerrar mapa">×</button>
+        </header>
+        <div class="map-modal__map">
+          <iframe
+            title="Mapa de Av. del Circuito entre A1 y A2"
+            src="https://www.google.com/maps?q=Av.%20del%20Circuito%20entre%20A1%20y%20A2%2C%20Potrero%20de%20los%20Funes%2C%20San%20Luis%2C%20Argentina&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <a
+          class="map-modal__directions"
+          href="https://maps.app.goo.gl/VYnoX6eWJEbcNp9J8"
+          target="_blank"
+          rel="noopener"
+        >ABRIR EN GOOGLE MAPS</a>
+      </div>
+    </dialog>
+
+    <dialog class="gift-modal" id="giftModal" aria-labelledby="giftModalTitle">
+      <div class="gift-modal__panel">
+        <header class="gift-modal__header">
+          <div>
+            <p>DATOS PARA REGALO</p>
+            <h2 id="giftModalTitle">Gracias</h2>
+          </div>
+          <button class="gift-modal__close" id="closeGift" type="button" aria-label="Cerrar datos">×</button>
+        </header>
+
+        <dl class="gift-modal__details">
+          <div>
+            <dt>ALIAS</dt>
+            <dd id="giftAlias">vickyblazquez</dd>
+          </div>
+          <div>
+            <dt>NOMBRE</dt>
+            <dd>Lara Victoria Blazquez</dd>
+          </div>
+          <div>
+            <dt>ENTIDAD</dt>
+            <dd>Mercado Pago</dd>
+          </div>
+        </dl>
+
+        <button class="gift-modal__copy" id="copyAlias" type="button">COPIAR ALIAS</button>
+      </div>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
