@@ -82,7 +82,7 @@ const dateRevealCanvas = document.getElementById("dateRevealCanvas");
 const dateRevealButton = document.getElementById("dateRevealButton");
 const dateMagic = document.getElementById("dateMagic");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const dateRevealStorageKey = "vicky-date-revealed";
+const dateRevealStorageKey = "vicky-date-revealed-v3";
 let dateWasRevealed = false;
 
 try {
@@ -165,6 +165,7 @@ if (dateWasRevealed) {
 
     activePointer = event.pointerId;
     previousPoint = { x: event.offsetX, y: event.offsetY };
+    dateReveal.classList.add("has-interacted");
     dateReveal.setPointerCapture(event.pointerId);
   });
 

@@ -143,7 +143,12 @@
             <span class="date-reveal__star date-reveal__star--three" aria-hidden="true"></span>
             <p>DESLIZÁ PARA DESCUBRIR</p>
             <span>Pasá el dedo varias veces</span>
-            <i aria-hidden="true"></i>
+            <div class="date-reveal__gesture" aria-hidden="true">
+              <svg class="date-reveal__gesture-trace" viewBox="0 0 190 76" preserveAspectRatio="none">
+                <path d="M154 10 C42 8 34 30 94 37 C156 44 150 68 36 66" />
+              </svg>
+              <img src="assets/date-reveal-hand.png" alt="" />
+            </div>
             <button id="dateRevealButton" type="button">REVELAR FECHA</button>
           </div>
         </div>
@@ -219,6 +224,7 @@
       <section class="closing" aria-label="Cierre y confirmación de asistencia">
         <div class="closing__frame">
           <img class="closing__image" src="assets/closing.png" alt="¿Venís? Quiero festejar esta noche con vos" />
+          <p class="closing__deadline">CONFIRMAR ASISTENCIA ANTES DEL 8 DE NOVIEMBRE</p>
           <a
             class="closing__button"
             id="confirmationLink"
