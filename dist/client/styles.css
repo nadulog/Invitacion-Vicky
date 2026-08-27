@@ -1436,6 +1436,7 @@ body:has(.gift-modal[open]) {
   .event-date,
   .venue,
   .dress-code,
+  .adults-only,
   .music,
   .gifts,
   .bloomkeep,
@@ -1446,6 +1447,7 @@ body:has(.gift-modal[open]) {
 
   .venue__frame,
   .dress-code__frame,
+  .adults-only__frame,
   .music__frame,
   .gifts__frame,
   .bloomkeep__frame,
@@ -1485,6 +1487,7 @@ body:has(.gift-modal[open]) {
 
   .venue,
   .dress-code,
+  .adults-only,
   .music,
   .gifts,
   .bloomkeep,
@@ -1494,6 +1497,7 @@ body:has(.gift-modal[open]) {
 
   .venue__frame,
   .dress-code__frame,
+  .adults-only__frame,
   .music__frame,
   .gifts__frame,
   .bloomkeep__frame,
