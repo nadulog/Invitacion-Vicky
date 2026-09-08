@@ -27,14 +27,21 @@ body,
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+  overscroll-behavior-y: none;
+  scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
   background: var(--paper);
   color: var(--ink);
+}
+
+.invitation {
+  overflow-anchor: none;
 }
 
 .audio-toggle {
@@ -448,7 +455,7 @@ body {
   overflow: hidden;
   background: var(--paper);
   inset: 0;
-  touch-action: pan-y;
+  touch-action: none;
   user-select: none;
 }
 
@@ -1427,32 +1434,6 @@ body:has(.gift-modal[open]) {
   .cover__photo {
     bottom: 0;
     width: 100vw;
-  }
-}
-
-@supports (height: 100dvh) {
-  .cover,
-  .countdown,
-  .event-date,
-  .venue,
-  .dress-code,
-  .adults-only,
-  .music,
-  .gifts,
-  .bloomkeep,
-  .closing {
-    height: 100dvh;
-    min-height: 100dvh;
-  }
-
-  .venue__frame,
-  .dress-code__frame,
-  .adults-only__frame,
-  .music__frame,
-  .gifts__frame,
-  .bloomkeep__frame,
-  .closing__frame {
-    width: min(100vw, 56.34dvh);
   }
 }
 

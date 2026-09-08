@@ -91,6 +91,93 @@ try {
   dateWasRevealed = false;
 }
 
+let dateScrollUnlocked = dateWasRevealed;
+let isClampingDateScroll = false;
+let touchStartY = null;
+
+function getDateGateTop() {
+  return Math.round(dateSection.getBoundingClientRect().top + window.scrollY);
+}
+
+function isAtDateGate() {
+  return window.scrollY >= getDateGateTop() - 2;
+}
+
+function clampDateScroll() {
+  if (dateScrollUnlocked || isClampingDateScroll) {
+    return;
+  }
+
+  const dateGateTop = getDateGateTop();
+
+  if (window.scrollY <= dateGateTop) {
+    return;
+  }
+
+  isClampingDateScroll = true;
+  window.scrollTo(0, dateGateTop);
+  requestAnimationFrame(() => {
+    isClampingDateScroll = false;
+  });
+}
+
+window.addEventListener("scroll", clampDateScroll, { passive: true });
+
+window.addEventListener(
+  "wheel",
+  (event) => {
+    if (!dateScrollUnlocked && event.deltaY > 0 && isAtDateGate()) {
+      event.preventDefault();
+      clampDateScroll();
+    }
+  },
+  { passive: false },
+);
+
+window.addEventListener(
+  "touchstart",
+  (event) => {
+    touchStartY = event.touches[0]?.clientY ?? null;
+  },
+  { passive: true },
+);
+
+window.addEventListener(
+  "touchmove",
+  (event) => {
+    const currentY = event.touches[0]?.clientY;
+
+    if (
+      !dateScrollUnlocked &&
+      touchStartY !== null &&
+      currentY !== undefined &&
+      currentY < touchStartY &&
+      isAtDateGate()
+    ) {
+      event.preventDefault();
+      clampDateScroll();
+    }
+
+    touchStartY = currentY ?? touchStartY;
+  },
+  { passive: false },
+);
+
+window.addEventListener("touchend", () => {
+  touchStartY = null;
+});
+
+window.addEventListener("keydown", (event) => {
+  const forwardKeys = ["ArrowDown", "PageDown", "End", " "];
+
+  if (!dateScrollUnlocked && forwardKeys.includes(event.key) && isAtDateGate()) {
+    event.preventDefault();
+    clampDateScroll();
+  }
+});
+
+window.addEventListener("pageshow", clampDateScroll);
+
 if (dateWasRevealed) {
   dateReveal.hidden = true;
   dateSection.classList.add("is-revealed-instant");
@@ -150,6 +237,7 @@ if (dateWasRevealed) {
 
     window.setTimeout(() => {
       dateReveal.hidden = true;
+      dateScrollUnlocked = true;
     }, reducedMotion ? 280 : 430);
   }
 
