@@ -50,7 +50,7 @@ function renderCountdownPart(element, value) {
 function updateCountdown() {
   const remaining = Math.max(0, eventDate.getTime() - Date.now());
 
-  renderCountdownPart(countdown.days, formatTime(Math.floor(remaining / 86_400_000), 3));
+  renderCountdownPart(countdown.days, String(Math.floor(remaining / 86_400_000)));
   renderCountdownPart(countdown.hours, formatTime(Math.floor((remaining % 86_400_000) / 3_600_000)));
   renderCountdownPart(countdown.minutes, formatTime(Math.floor((remaining % 3_600_000) / 60_000)));
   renderCountdownPart(countdown.seconds, formatTime(Math.floor((remaining % 60_000) / 1_000)));
